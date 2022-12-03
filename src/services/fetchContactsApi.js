@@ -16,3 +16,8 @@ export async function deleteContactApi(contactId) {
   const { data } = await axios.delete(`/contacts/${contactId}`);
   return data;
 }
+
+export async function editContactApi(contactId) {
+  const { data } = await axios.put(`/contacts/${contactId}`);
+  return data;
+}
