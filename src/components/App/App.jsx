@@ -20,10 +20,12 @@ export const App = () => {
   const addedContacts = useSelector(getContacts);
   const dispatch = useDispatch();
 
-  useEffect(() => dispatch(fetchContacts()), [dispatch]);
+  useEffect(() => {
+    dispatch(fetchContacts());
+  }, [dispatch]);
 
   const isArrayOfContactsEmpty = addedContacts.length !== 0;
-
+  console.log(addedContacts);
   return (
     <Wrapper>
       <ContainerBox>
@@ -32,8 +34,8 @@ export const App = () => {
           {isArrayOfContactsEmpty && (
             <div>
               <ContactsTitle>Contacts</ContactsTitle>
-              {/* <Filter />
-              <ContactList /> */}
+              <Filter />
+              <ContactList />
             </div>
           )}
         </Box>

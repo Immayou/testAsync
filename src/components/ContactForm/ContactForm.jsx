@@ -2,7 +2,10 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { TiPhoneOutline } from 'react-icons/ti';
 import { generate } from 'shortid';
-import { addContact, getContacts } from '../../redux/contactSlice';
+import {
+  // addContact,
+  getContacts,
+} from '../../redux/contactSlice';
 import {
   Title,
   PhoneForm,
@@ -12,6 +15,7 @@ import {
   InputNumberField,
   FormButton,
 } from './ContactForm.styled';
+import { addNewContact } from '../../redux/operations';
 
 const ContactForm = () => {
   const dispatch = useDispatch();
@@ -49,7 +53,7 @@ const ContactForm = () => {
 
     checkIfNewContactAlreadyExists
       ? alert(`${contactToAdd.name} is already in contacts`)
-      : dispatch(addContact(contactToAdd));
+      : dispatch(addNewContact(contactToAdd));
 
     reset();
   };
