@@ -3,9 +3,10 @@ import {
   fetchContacts,
   addNewContact,
   removeContact,
+  editContact,
 } from '../redux/operations';
 
-const extraActions = [fetchContacts, addNewContact, removeContact];
+const extraActions = [fetchContacts, addNewContact, removeContact, editContact];
 
 const getActions = type => extraActions.map(action => action[type]);
 
@@ -22,6 +23,18 @@ const removeContactSuccessReducer = (state, action) => {
     contact => contact.id === action.payload.id
   );
   state.items.splice(index, 1);
+};
+
+const editContactSuccessReducer = (state, action) => {
+  // state.items.map((item, i) =>
+  //   i === action.payload.id ? action.payload : item
+  // );
+  // console.log(action.payload);
+  const index = state.items.findIndex(
+    contact => contact.id === action.payload.id
+  );
+  console.log(action.payload);
+  state.items.splice(index, 1, action.payload);
 };
 
 const pendingReducer = state => {
@@ -50,6 +63,7 @@ export const contactsSlice = createSlice({
       .addCase(fetchContacts.fulfilled, fetchContactsSuccessReducer)
       .addCase(addNewContact.fulfilled, addNewContactSuccessReducer)
       .addCase(removeContact.fulfilled, removeContactSuccessReducer)
+      .addCase(editContact.fulfilled, editContactSuccessReducer)
       .addMatcher(isAnyOf(...getActions('pending')), pendingReducer)
       .addMatcher(isAnyOf(...getActions('rejected')), rejectedReducer)
       .addMatcher(isAnyOf(...getActions('fulfilled')), fulfilledReducer);

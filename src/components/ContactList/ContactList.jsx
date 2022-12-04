@@ -1,50 +1,40 @@
-import { useDispatch, useSelector } from 'react-redux';
-import {
-  // deleteContact,
-  getContacts,
-} from '../../redux/contactSlice';
+import { useSelector } from 'react-redux';
+import { getContacts, getIsLoading } from '../../redux/contactSlice';
 import { getFilterValue } from '../../redux/filterSlice';
-import {
-  ListOfContacts,
-  ContactItem,
-  NameInfo,
-  NumberInfo,
-  DeleteButton,
-} from './ContactList.styled';
-import { removeContact } from '../../redux/operations';
+import { ContactItem } from '../ContactItem/ContactItem';
+import { Spinner } from '../Spinner/Spinner';
+import noMatchesImg from '../../images/noMatches.png';
+import { NoMatchesSectionTitle } from '../ContactList/ContactList.styled';
 
 const ContactList = () => {
-  const dispatch = useDispatch();
   const addedContacts = useSelector(getContacts);
+  const isLoading = useSelector(getIsLoading);
   const enteredFilterValue = useSelector(getFilterValue);
 
-  const getFiltredContacts = () => {
-    const normalizeFilter = enteredFilterValue.toLowerCase();
-    const visibleContacts = addedContacts.filter(({ name }) =>
-      name.toLowerCase().includes(normalizeFilter)
-    );
-    return visibleContacts;
-  };
-
-  const contactsToRender = getFiltredContacts();
+  const normalizeFilter = enteredFilterValue.toLowerCase();
+  const visibleContacts = addedContacts.filter(({ name }) =>
+    name.toLowerCase().includes(normalizeFilter)
+  );
+  const noMatches = visibleContacts.length === 0;
 
   return (
-    <ListOfContacts>
-      {contactsToRender.map(({ id, name, phone }) => (
-        <ContactItem key={id}>
-          <div>
-            <NameInfo>{name}: </NameInfo>
-            <NumberInfo>{phone}</NumberInfo>
-          </div>
-          <DeleteButton
-            type="button"
-            onClick={() => dispatch(removeContact(id))}
-          >
-            Delete
-          </DeleteButton>
-        </ContactItem>
-      ))}
-    </ListOfContacts>
+    <>
+      {isLoading ? (
+        <Spinner />
+      ) : (
+        <ul>
+          {visibleContacts.map(contact => (
+            <ContactItem key={contact.id} item={contact} />
+          ))}
+        </ul>
+      )}
+      {noMatches && (
+        <div>
+          <NoMatchesSectionTitle>Ooops... No matches!</NoMatchesSectionTitle>
+          <img src={noMatchesImg} alt="Error" width={100} />
+        </div>
+      )}
+    </>
   );
 };
 

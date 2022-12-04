@@ -1,11 +1,12 @@
 import { useState } from 'react';
+import { nanoid } from '@reduxjs/toolkit';
 import { useDispatch, useSelector } from 'react-redux';
 import { TiPhoneOutline } from 'react-icons/ti';
-import { generate } from 'shortid';
+import { getContacts, getIsLoading } from '../../redux/contactSlice';
 import {
-  // addContact,
-  getContacts,
-} from '../../redux/contactSlice';
+  notifyError,
+  notifySuccess,
+} from '../../notificationMessages/notificationMessages';
 import {
   Title,
   PhoneForm,
@@ -20,11 +21,12 @@ import { addNewContact } from '../../redux/operations';
 const ContactForm = () => {
   const dispatch = useDispatch();
   const addedContacts = useSelector(getContacts);
+  const isLoading = useSelector(getIsLoading);
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
 
-  const nameInputId = generate();
-  const numberInputId = generate();
+  const nameInputId = nanoid();
+  const numberInputId = nanoid();
 
   const handleInput = e => {
     switch (e.target.name) {
@@ -41,20 +43,22 @@ const ContactForm = () => {
 
   const handleSubmit = e => {
     e.preventDefault();
+
     const contactToAdd = {
       name,
-      number,
-      id: generate(),
+      phone: number,
     };
 
     const checkIfNewContactAlreadyExists = addedContacts.find(
       ({ name }) => name.toLowerCase() === contactToAdd.name.toLowerCase()
     );
 
-    checkIfNewContactAlreadyExists
-      ? alert(`${contactToAdd.name} is already in contacts`)
-      : dispatch(addNewContact(contactToAdd));
-
+    if (checkIfNewContactAlreadyExists) {
+      notifyError(contactToAdd.name);
+    } else {
+      dispatch(addNewContact(contactToAdd));
+      notifySuccess(contactToAdd.name);
+    }
     reset();
   };
 
@@ -66,7 +70,7 @@ const ContactForm = () => {
   return (
     <PhoneForm onSubmit={handleSubmit}>
       <Title>
-        <TiPhoneOutline size={33} /> Phonebook
+        <TiPhoneOutline size={50} /> Phonebook
       </Title>
       <NameLabel htmlFor={nameInputId}>Name</NameLabel>
       <InputNameField
@@ -90,7 +94,9 @@ const ContactForm = () => {
         onChange={handleInput}
         required
       />
-      <FormButton type="submit">Add contact</FormButton>
+      <FormButton type="submit" disabled={isLoading}>
+        Add contact
+      </FormButton>
     </PhoneForm>
   );
 };

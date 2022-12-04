@@ -17,7 +17,7 @@ export async function deleteContactApi(contactId) {
   return data;
 }
 
-export async function editContactApi(contactId) {
-  const { data } = await axios.put(`/contacts/${contactId}`);
+export async function editContactApi(contact) {
+  const { data } = await axios.put(`/contacts/${contact.id}`, contact);
   return data;
 }
