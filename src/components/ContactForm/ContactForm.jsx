@@ -15,6 +15,7 @@ import {
   NumberLabel,
   InputNumberField,
   FormButton,
+  StyledContainer,
 } from './ContactForm.styled';
 import { addNewContact } from '../../redux/operations';
 
@@ -69,6 +70,7 @@ const ContactForm = () => {
 
   return (
     <PhoneForm onSubmit={handleSubmit}>
+      <StyledContainer />
       <Title>
         <TiPhoneOutline size={50} /> Phonebook
       </Title>

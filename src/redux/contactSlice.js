@@ -26,10 +26,6 @@ const removeContactSuccessReducer = (state, action) => {
 };
 
 const editContactSuccessReducer = (state, action) => {
-  // state.items.map((item, i) =>
-  //   i === action.payload.id ? action.payload : item
-  // );
-  // console.log(action.payload);
   const index = state.items.findIndex(
     contact => contact.id === action.payload.id
   );
