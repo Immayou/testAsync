@@ -1,7 +1,13 @@
+import { Routes, Route } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getContacts, getIsLoading, getError } from '../../redux/contactSlice';
 import { fetchContacts } from '../../redux/operations';
+import { SharedAppBar } from '../SharedAppBar/SharedAppBar';
+import { Home } from '../../pages/Home/Home';
+import { Registration } from '../../pages/Registration/Registration';
+import { LogIn } from '../../pages/LogIn/LogIn';
+import { Contacts } from '../../pages/Contacts/Contacts';
 import TopBox from '../TopBox/TopBox';
 import BottomBox from '../BottomBox/BottomBox';
 import ContactForm from '../ContactForm/ContactForm';
@@ -13,81 +19,75 @@ import {
   MainWrapper,
   ContactsTitle,
   Layout,
-  Header,
   NoContactsSectionTitle,
   ErrorSectionTitle,
   ErrorSectionText,
 } from '../App/App.styled';
 
 export const App = () => {
-  const addedContacts = useSelector(getContacts);
-  const isLoading = useSelector(getIsLoading);
-  const isError = useSelector(getError);
-  const dispatch = useDispatch();
+  // const addedContacts = useSelector(getContacts);
+  // const isLoading = useSelector(getIsLoading);
+  // const isError = useSelector(getError);
+  // const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(fetchContacts());
-  }, [dispatch]);
+  // useEffect(() => {
+  //   dispatch(fetchContacts());
+  // }, [dispatch]);
 
-  const isNotContactListEmpty = addedContacts.length > 0;
+  // const isNotContactListEmpty = addedContacts.length > 0;
 
   return (
-    <Layout>
-      <Header>
-        <button>Home</button>
-        <button>Register</button>
-        <button>Log in</button>
-      </Header>
-      <MainWrapper>
-        <TopBox>
-          <ContactForm />
-        </TopBox>
-        {isNotContactListEmpty && (
-          <BottomBox>
-            <div>
-              <ContactsTitle>Contacts</ContactsTitle>
-              <Filter />
-              <ContactList />
-            </div>
-          </BottomBox>
-        )}
-        {!isNotContactListEmpty && !isError && !isLoading && (
-          <BottomBox>
-            <div>
-              <NoContactsSectionTitle>No contacts yet!</NoContactsSectionTitle>
-              <img src={emptyPhonebookImg} alt="No contacts" width={100} />
-            </div>
-          </BottomBox>
-        )}
-        {isError && !isLoading && (
-          <BottomBox>
-            <div>
-              <ErrorSectionTitle>
-                Sorry, something went wrong!
-              </ErrorSectionTitle>
-              <ErrorSectionText style={{ marginBottom: '10px' }}>
-                Error loading the contacts
-              </ErrorSectionText>
-              <img src={errorImg} alt="Error" width={100} />
-            </div>
-          </BottomBox>
-        )}
-      </MainWrapper>
-    </Layout>
+    <>
+      <Routes>
+        <Route path="/" element={<SharedAppBar />}>
+          <Route index element={<Home />} />
+          <Route path="login" element={<LogIn />} />
+          <Route path="registration" element={<Registration />} />
+          <Route path="contacts" element={<Contacts />} />
+          <Route path="*" element={<div>Not found</div>} />
+        </Route>
+      </Routes>
+    </>
   );
 };
 
-// <Wrapper>
-//       <ContainerBox>
-//         <Box>
+//   return (
+//     <Layout>
+//       <MainWrapper>
+//         <TopBox>
 //           <ContactForm />
-//           {isArrayOfContactsEmpty && (
+//         </TopBox>
+//         {isNotContactListEmpty && (
+//           <BottomBox>
 //             <div>
 //               <ContactsTitle>Contacts</ContactsTitle>
 //               <Filter />
 //               <ContactList />
 //             </div>
-//           )}
-//         </Box>
-//       </ContainerBox>
-//     </Wrapper>
+//           </BottomBox>
+//         )}
+//         {!isNotContactListEmpty && !isError && !isLoading && (
+//           <BottomBox>
+//             <div>
+//               <NoContactsSectionTitle>No contacts yet!</NoContactsSectionTitle>
+//               <img src={emptyPhonebookImg} alt="No contacts" width={100} />
+//             </div>
+//           </BottomBox>
+//         )}
+//         {isError && !isLoading && (
+//           <BottomBox>
+//             <div>
+//               <ErrorSectionTitle>
+//                 Sorry, something went wrong!
+//               </ErrorSectionTitle>
+//               <ErrorSectionText style={{ marginBottom: '10px' }}>
+//                 Error loading the contacts
+//               </ErrorSectionText>
+//               <img src={errorImg} alt="Error" width={100} />
+//             </div>
+//           </BottomBox>
+//         )}
+//       </MainWrapper>
+//     </Layout>
+//   );
+// };
