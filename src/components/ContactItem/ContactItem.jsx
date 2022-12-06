@@ -43,7 +43,7 @@ export const ContactItem = ({ item }) => {
           <TiContacts size={30} style={{ marginRight: '10px' }} />
           <div style={{ display: 'flex', flexDirection: 'column' }}>
             <NameInfo>{item.name}: </NameInfo>
-            <NumberInfo>{item.phone}</NumberInfo>
+            <NumberInfo>{item.number}</NumberInfo>
           </div>
         </div>
         <div style={{ display: 'flex' }}>

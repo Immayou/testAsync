@@ -47,6 +47,7 @@ export const editContact = createAsyncThunk(
   async (contact, { rejectWithValue }) => {
     try {
       const contactToEdit = await editContactApi(contact);
+      console.log(contactToEdit);
       return contactToEdit;
     } catch (error) {
       return rejectWithValue(error.message);

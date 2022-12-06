@@ -1,3 +1,5 @@
+import { useDispatch } from 'react-redux';
+import { register } from '../../redux/authOperations';
 import {
   Form,
   WrapperLeft,
@@ -13,22 +15,39 @@ import {
 } from '../LogIn/LogIn.styled';
 
 export const Registration = () => {
+  const dispatch = useDispatch();
+  const handleSubmit = e => {
+    e.preventDefault();
+    const form = e.currentTarget;
+    dispatch(
+      register({
+        name: form.elements.name.value,
+        email: form.elements.email.value,
+        password: form.elements.password.value,
+      })
+    );
+    form.reset();
+  };
   return (
     <>
       <main>
         <Layout>
-          <Form>
+          <Form onSubmit={handleSubmit}>
             <WrapperLeft></WrapperLeft>
             <WrapperRight></WrapperRight>
             <WrapperCircle></WrapperCircle>
             <FormContent>
               <FormTitle>Let's register</FormTitle>
               <FormLabel htmlFor="name">Name</FormLabel>
-              <FormInput type="text" id="name" />
+              <FormInput type="text" id="name" name="name" />
               <FormLabel htmlFor="email">E-mail</FormLabel>
-              <FormInput type="text" id="email" />
+              <FormInput type="text" id="email" name="email" />
               <FormLabel htmlFor="password">Password</FormLabel>
-              <FormPasswordInput type="email" id="password" />
+              <FormPasswordInput
+                type="password"
+                id="password"
+                name="password"
+              />
               <FormButton type="submit">Ok</FormButton>
             </FormContent>
           </Form>

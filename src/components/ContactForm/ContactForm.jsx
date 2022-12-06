@@ -47,7 +47,7 @@ const ContactForm = () => {
 
     const contactToAdd = {
       name,
-      phone: number,
+      number,
     };
 
     const checkIfNewContactAlreadyExists = addedContacts.find(

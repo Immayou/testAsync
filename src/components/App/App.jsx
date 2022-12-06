@@ -23,6 +23,10 @@ import {
   ErrorSectionTitle,
   ErrorSectionText,
 } from '../App/App.styled';
+import { refreshUser } from '../../redux/authOperations';
+import { useAuth } from '../../hooks/useAuth';
+import { RestrictedRoute } from '../RestrictedRoute';
+import { PrivateRoute } from '../PrivateRoute';
 
 export const App = () => {
   // const addedContacts = useSelector(getContacts);
@@ -36,18 +40,41 @@ export const App = () => {
 
   // const isNotContactListEmpty = addedContacts.length > 0;
 
+  const dispatch = useDispatch();
+  const { isRefreshing } = useAuth();
+
+  useEffect(() => {
+    dispatch(refreshUser());
+  }, [dispatch]);
+
   return (
-    <>
+    !isRefreshing && (
       <Routes>
         <Route path="/" element={<SharedAppBar />}>
           <Route index element={<Home />} />
-          <Route path="login" element={<LogIn />} />
-          <Route path="registration" element={<Registration />} />
-          <Route path="contacts" element={<Contacts />} />
+          <Route
+            path="/login"
+            element={
+              <RestrictedRoute component={LogIn} redirectTo="/contacts" />
+            }
+          />
+          <Route
+            path="/registration"
+            element={
+              <RestrictedRoute
+                component={Registration}
+                redirectTo="/contacts"
+              />
+            }
+          />
+          <Route
+            path="/contacts"
+            element={<PrivateRoute component={Contacts} redirectTo="/login" />}
+          />
           <Route path="*" element={<div>Not found</div>} />
         </Route>
       </Routes>
-    </>
+    )
   );
 };
 

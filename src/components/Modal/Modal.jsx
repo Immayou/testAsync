@@ -26,7 +26,7 @@ export const Modal = ({ onModalClose, dataContact }) => {
   document.body.style.overflow = 'hidden';
 
   const [name, setName] = useState(dataContact.name);
-  const [number, setNumber] = useState(dataContact.phone);
+  const [number, setNumber] = useState(dataContact.number);
 
   const nameInputId = nanoid();
   const numberInputId = nanoid();
@@ -67,7 +67,7 @@ export const Modal = ({ onModalClose, dataContact }) => {
     const contactToEdit = {
       id: dataContact.id,
       name,
-      phone: number,
+      number,
     };
 
     const checkIfEditedContactAlreadyExists = addedContacts.find(

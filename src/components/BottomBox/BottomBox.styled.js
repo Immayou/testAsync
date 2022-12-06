@@ -12,4 +12,7 @@ export const CoverBox = styled.section`
   border-radius: 1% 1% 2% 4% / 2% 6% 5% 4%;
   text-transform: uppercase;
   letter-spacing: 0.3ch;
+  &:not(:last-of-type) {
+    margin-bottom: 20px;
+  }
 `;
