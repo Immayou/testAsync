@@ -38,12 +38,14 @@ export const NumberLabel = styled.label`
 `;
 
 export const InputNameField = styled.input`
-  min-height: 20px;
+  padding-left: 0 0 0 10px;
   margin-bottom: 30px;
-  border: 1px solid #000;
-  border-radius: 4px;
+  background: #e9eff6;
+  line-height: 40px;
+  border-width: 1px;
+  font-size: 18px;
+  border-radius: 15px;
   transition: box-shadow 250ms cubic-bezier(0.075, 0.82, 0.165, 1);
-
   :hover,
   :focus {
     box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
@@ -51,12 +53,14 @@ export const InputNameField = styled.input`
   }
 `;
 export const InputNumberField = styled.input`
-  min-height: 20px;
+  padding-left: 0 0 0 10px;
   margin-bottom: 30px;
-  border: 1px solid #000;
-  border-radius: 4px;
+  background: #e9eff6;
+  line-height: 40px;
+  border-width: 1px;
+  border-radius: 15px;
+  font-size: 18px;
   transition: box-shadow 250ms cubic-bezier(0.075, 0.82, 0.165, 1);
-
   :hover,
   :focus {
     box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
@@ -64,21 +68,29 @@ export const InputNumberField = styled.input`
   }
 `;
 export const FormButton = styled.button`
-  width: 100px;
-  min-height: 30px;
   margin: 0 auto;
-  border-radius: 5px;
-  border: 1px solid gray;
-  background-color: lightgray;
+  width: 40%;
+  height: 40px;
+  border-radius: 7px;
+  font-family: inherit;
+  text-transform: uppercase;
+  background: #c5dde8;
+  border: 1px solid #000000;
+  border-radius: 15px;
+  color: #000000;
+  line-height: 1.17;
+  letter-spacing: 0.3ch;
+  font-size: 15px;
   transition: box-shadow 250ms cubic-bezier(0.075, 0.82, 0.165, 1),
     background-color 250ms cubic-bezier(0.075, 0.82, 0.165, 1),
-    border 250ms cubic-bezier(0.075, 0.82, 0.165, 1);
-
+    color 250ms cubic-bezier(0.075, 0.82, 0.165, 1),
+    letter-spacing 250ms cubic-bezier(0.075, 0.82, 0.165, 1);
   :hover,
   :focus {
-    background-color: lightblue;
-    border: 1px solid #000;
     box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
       1px 4px 6px rgba(0, 0, 0, 0.16);
+    color: grey;
+    background-color: #eecfba;
+    letter-spacing: 0.2ch;
   }
 `;

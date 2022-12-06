@@ -3,6 +3,7 @@ import { nanoid } from '@reduxjs/toolkit';
 import { useDispatch, useSelector } from 'react-redux';
 import { TiPhoneOutline } from 'react-icons/ti';
 import { getContacts, getIsLoading } from '../../redux/contactSlice';
+import { addNewContact } from '../../redux/operations';
 import {
   notifyError,
   notifySuccess,
@@ -17,7 +18,6 @@ import {
   FormButton,
   StyledContainer,
 } from './ContactForm.styled';
-import { addNewContact } from '../../redux/operations';
 
 const ContactForm = () => {
   const dispatch = useDispatch();

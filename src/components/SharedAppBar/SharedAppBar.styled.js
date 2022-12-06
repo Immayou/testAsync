@@ -1,9 +1,12 @@
 import styled from '@emotion/styled';
 
 export const Header = styled.header`
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
   height: 80px;
-  background-color: #ffffff;
-  border-bottom: thin solid #707981;
-  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 10px rgba(0, 0, 0, 0.06),
-    1px 4px 6px rgba(0, 0, 0, 0.16);
+  border-bottom: 1px solid #000000;
+  @media screen and (min-width: 450px) {
+    padding: 0 20px;
+  }
 `;

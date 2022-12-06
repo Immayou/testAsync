@@ -1,6 +1,38 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { register, login, logOut, refreshUser } from './authOperations';
 
+const registerSuccessReducer = (state, action) => {
+  state.user = action.payload.user;
+  state.token = action.payload.token;
+  state.isLoggedIn = true;
+};
+
+const logInSuccessReducer = (state, action) => {
+  state.user = action.payload.user;
+  state.token = action.payload.token;
+  state.isLoggedIn = true;
+};
+
+const logOutSuccessReducer = state => {
+  state.user = { name: null, email: null };
+  state.token = null;
+  state.isLoggedIn = false;
+};
+
+const refreshSuccessReducer = (state, action) => {
+  state.user = action.payload;
+  state.isLoggedIn = true;
+};
+
+const pendingReducer = state => {
+  state.isLoading = true;
+};
+
+const rejectedReducer = (state, action) => {
+  state.isLoading = false;
+  state.error = action.payload;
+};
+
 export const authSlice = createSlice({
   name: 'auth',
   initialState: {
@@ -11,32 +43,17 @@ export const authSlice = createSlice({
   },
   extraReducers: builder =>
     builder
-      .addCase(register.pending, (state, action) => state)
-      .addCase(register.fulfilled, (state, action) => {
-        state.user = action.payload.user;
-        state.token = action.payload.token;
-        state.isLoggedIn = true;
-      })
-      .addCase(register.rejected, (state, action) => state)
-      .addCase(login.pending, (state, action) => state)
-      .addCase(login.fulfilled, (state, action) => {
-        state.user = action.payload.user;
-        state.token = action.payload.token;
-        state.isLoggedIn = true;
-      })
-      .addCase(login.rejected, (state, action) => state)
-      .addCase(logOut.pending, (state, action) => state)
-      .addCase(logOut.fulfilled, state => {
-        state.user = { name: null, email: null };
-        state.token = null;
-        state.isLoggedIn = false;
-      })
-      .addCase(logOut.rejected, (state, action) => state)
-      .addCase(refreshUser.pending, (state, action) => state)
-      .addCase(refreshUser.fulfilled, (state, action) => {
-        state.user = action.payload;
-        state.isLoggedIn = true;
-      })
+      .addCase(register.pending, pendingReducer)
+      .addCase(register.fulfilled, registerSuccessReducer)
+      .addCase(register.rejected, rejectedReducer)
+      .addCase(login.pending, pendingReducer)
+      .addCase(login.fulfilled, logInSuccessReducer)
+      .addCase(login.rejected, rejectedReducer)
+      .addCase(logOut.pending, pendingReducer)
+      .addCase(logOut.fulfilled, logOutSuccessReducer)
+      .addCase(logOut.rejected, rejectedReducer)
+      .addCase(refreshUser.pending, pendingReducer)
+      .addCase(refreshUser.fulfilled, refreshSuccessReducer)
       .addCase(refreshUser.rejected, (state, action) => state),
 });
 

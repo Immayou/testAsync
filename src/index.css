@@ -47,6 +47,8 @@ li {
 
 input {
   outline: none;
+  font-family: inherit;
+  letter-spacing: 0.1ch;
 }
 
 image {

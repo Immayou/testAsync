@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { TiContacts } from 'react-icons/ti';
 import { notifySuccessDeletedInfo } from '../../../src/notificationMessages/notificationMessages';
 import { getIsLoading } from '../../redux/contactSlice';
+import { removeContact } from '../../redux/operations';
 import { Modal } from '../Modal/Modal';
 import {
   ContactSimpleItem,
@@ -10,7 +11,6 @@ import {
   NumberInfo,
   ContactButton,
 } from './ContactItem.styled';
-import { removeContact } from '../../redux/operations';
 
 export const ContactItem = ({ item }) => {
   const dispatch = useDispatch();
@@ -49,7 +49,7 @@ export const ContactItem = ({ item }) => {
         <div style={{ display: 'flex' }}>
           <ContactButton
             type="button"
-            style={{ marginRight: '5px' }}
+            style={{ marginRight: '7px' }}
             onClick={onEditButtonHandlerClick}
           >
             Edit

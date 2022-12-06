@@ -6,9 +6,9 @@ import {
   editContact,
 } from '../redux/operations';
 
-const extraActions = [fetchContacts, addNewContact, removeContact, editContact];
+const allActions = [fetchContacts, addNewContact, removeContact, editContact];
 
-const getActions = type => extraActions.map(action => action[type]);
+const getActions = type => allActions.map(action => action[type]);
 
 const fetchContactsSuccessReducer = (state, action) => {
   state.items = action.payload;
@@ -29,7 +29,6 @@ const editContactSuccessReducer = (state, action) => {
   const index = state.items.findIndex(
     contact => contact.id === action.payload.id
   );
-  console.log(action.payload);
   state.items.splice(index, 1, action.payload);
 };
 
