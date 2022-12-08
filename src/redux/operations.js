@@ -1,5 +1,9 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
+import {
+  notifySuccess,
+  notifySuccessEditedInfo,
+} from '../notificationMessages/notificationMessages';
 
 axios.defaults.baseURL = 'https://connections-api.herokuapp.com';
 
@@ -20,6 +24,7 @@ export const addNewContact = createAsyncThunk(
   async (newContact, { rejectWithValue }) => {
     try {
       const { data } = await axios.post('/contacts', newContact);
+      notifySuccess(data.name);
       return data;
     } catch (error) {
       return rejectWithValue(error.message);
@@ -47,6 +52,7 @@ export const editContact = createAsyncThunk(
         name: `${contact.name}`,
         number: `${contact.number}`,
       });
+      notifySuccessEditedInfo(data.name);
       return data;
     } catch (error) {
       return rejectWithValue(error.message);

@@ -22,7 +22,7 @@ export const notifySuccessEditedInfo = text => {
   });
 };
 
-export const notifyError = text => {
+export const notifyErrorIfNewContactAlreadyExists = text => {
   toast.error(`${text} already exists in contacts!`, {
     position: toast.POSITION.TOP_CENTER,
     autoClose: 2000,

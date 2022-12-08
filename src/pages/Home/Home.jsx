@@ -7,14 +7,6 @@ import {
   HomePageTitle,
 } from '../Home/Home.styled';
 
-<Typewriter
-  options={{
-    strings: ['Hello', 'World'],
-    autoStart: true,
-    loop: true,
-  }}
-/>;
-
 const Home = () => {
   const { isLoggedIn } = useAuth();
   return (

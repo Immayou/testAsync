@@ -5,10 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { TiPhoneOutline } from 'react-icons/ti';
 import { getContacts, getIsLoading } from '../../redux/contactSlice';
 import { addNewContact } from '../../redux/operations';
-import {
-  notifyError,
-  notifySuccess,
-} from '../../notificationMessages/notificationMessages';
+import { notifyErrorIfNewContactAlreadyExists } from '../../notificationMessages/notificationMessages';
 import {
   Title,
   PhoneForm,
@@ -56,10 +53,9 @@ const ContactForm = () => {
     );
 
     if (checkIfNewContactAlreadyExists) {
-      notifyError(contactToAdd.name);
+      notifyErrorIfNewContactAlreadyExists(contactToAdd.name);
     } else {
       dispatch(addNewContact(contactToAdd));
-      notifySuccess(contactToAdd.name);
     }
     reset();
   };

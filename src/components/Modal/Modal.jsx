@@ -6,10 +6,7 @@ import { nanoid } from '@reduxjs/toolkit';
 import { IoCloseSharp } from 'react-icons/io5';
 import { getContacts } from '../../redux/contactSlice';
 import { editContact } from '../../redux/operations';
-import {
-  notifyError,
-  notifySuccessEditedInfo,
-} from '../../../src/notificationMessages/notificationMessages';
+import { notifyErrorIfNewContactAlreadyExists } from '../../../src/notificationMessages/notificationMessages';
 import {
   Overlay,
   ModalCloseButton,
@@ -78,17 +75,25 @@ export const Modal = ({ onModalClose, dataContact }) => {
       number,
     };
 
-    const checkIfEditedContactAlreadyExists = addedContacts.find(
+    const editedContactAlreadyExists = addedContacts.find(
       ({ name, id }) =>
         name.toLowerCase() === contactToEdit.name.toLowerCase() &&
         contactToEdit.id !== id
     );
 
-    if (checkIfEditedContactAlreadyExists) {
-      notifyError(contactToEdit.name);
+    const contactIsNotEdited = addedContacts.find(
+      ({ name, id, number }) =>
+        name.toLowerCase() === contactToEdit.name.toLowerCase() &&
+        contactToEdit.id === id &&
+        number.trim() === contactToEdit.number.trim()
+    );
+
+    if (editedContactAlreadyExists) {
+      notifyErrorIfNewContactAlreadyExists(contactToEdit.name);
+    } else if (contactIsNotEdited) {
+      onModalClose();
     } else {
       dispatch(editContact(contactToEdit));
-      notifySuccessEditedInfo(contactToEdit.name);
     }
 
     document.body.style.overflow = '';
