@@ -15,7 +15,7 @@ import {
   Layout,
 } from '../LogIn/LogIn.styled';
 
-export const LogIn = () => {
+const LogIn = () => {
   const dispatch = useDispatch();
   const handleSubmit = e => {
     e.preventDefault();
@@ -57,3 +57,5 @@ export const LogIn = () => {
     </>
   );
 };
+
+export default LogIn;

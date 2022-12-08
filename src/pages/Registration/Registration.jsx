@@ -15,7 +15,7 @@ import {
   Layout,
 } from '../LogIn/LogIn.styled';
 
-export const Registration = () => {
+const Registration = () => {
   const dispatch = useDispatch();
   const handleSubmit = e => {
     e.preventDefault();
@@ -60,3 +60,5 @@ export const Registration = () => {
     </>
   );
 };
+
+export default Registration;

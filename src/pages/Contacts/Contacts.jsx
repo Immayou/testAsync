@@ -18,7 +18,7 @@ import {
   ErrorSectionText,
 } from './Contacts.styled';
 
-export const Contacts = () => {
+const Contacts = () => {
   const addedContacts = useSelector(getContacts);
   const isLoading = useSelector(getIsLoading);
   const isError = useSelector(getError);
@@ -75,3 +75,5 @@ export const Contacts = () => {
     </>
   );
 };
+
+export default Contacts;

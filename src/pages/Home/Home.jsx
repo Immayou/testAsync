@@ -14,7 +14,8 @@ import {
     loop: true,
   }}
 />;
-export const Home = () => {
+
+const Home = () => {
   const { isLoggedIn } = useAuth();
   return (
     <>
@@ -47,3 +48,5 @@ export const Home = () => {
     </>
   );
 };
+
+export default Home;

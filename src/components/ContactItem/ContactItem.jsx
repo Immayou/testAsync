@@ -70,11 +70,11 @@ export const ContactItem = ({ item }) => {
 };
 
 ContactItem.propTypes = {
-  item: PropTypes.objectOf(
-    PropTypes.shape({
+  item: PropTypes.shape(
+    {
       id: PropTypes.string,
       name: PropTypes.string,
       number: PropTypes.string,
-    }).isRequired
+    }.isRequired
   ).isRequired,
 };

@@ -1,15 +1,19 @@
 import { Routes, Route } from 'react-router-dom';
+import { lazy } from 'react';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { refreshUser } from '../../redux/authOperations';
 import { useAuth } from '../../hooks/useAuth';
 import { SharedAppBar } from '../SharedAppBar/SharedAppBar';
-import { Home } from '../../pages/Home/Home';
-import { Registration } from '../../pages/Registration/Registration';
-import { LogIn } from '../../pages/LogIn/LogIn';
-import { Contacts } from '../../pages/Contacts/Contacts';
 import { RestrictedRoute } from '../RestrictedRoute';
 import { PrivateRoute } from '../PrivateRoute';
+
+const Home = lazy(() => import('../../pages/Home/Home'));
+const Registration = lazy(() =>
+  import('../../pages/Registration/Registration')
+);
+const LogIn = lazy(() => import('../../pages/LogIn/LogIn'));
+const Contacts = lazy(() => import('../../pages/Contacts/Contacts'));
 
 export const App = () => {
   const dispatch = useDispatch();
