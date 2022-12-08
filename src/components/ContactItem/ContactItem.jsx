@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { TiContacts } from 'react-icons/ti';
@@ -66,4 +67,14 @@ export const ContactItem = ({ item }) => {
       {isOpenModal && <Modal onModalClose={onModalClose} dataContact={item} />}
     </>
   );
+};
+
+ContactItem.propTypes = {
+  item: PropTypes.objectOf(
+    PropTypes.shape({
+      id: PropTypes.string,
+      name: PropTypes.string,
+      number: PropTypes.string,
+    }).isRequired
+  ).isRequired,
 };

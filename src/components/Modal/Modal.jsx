@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { createPortal } from 'react-dom';
@@ -132,4 +133,8 @@ export const Modal = ({ onModalClose, dataContact }) => {
     </Overlay>,
     modalRoot
   );
+};
+
+Modal.propTypes = {
+  onModalClose: PropTypes.func.isRequired,
 };

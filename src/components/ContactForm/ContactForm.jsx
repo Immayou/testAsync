@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { FaFeather } from 'react-icons/fa';
 import { nanoid } from '@reduxjs/toolkit';
 import { useDispatch, useSelector } from 'react-redux';
 import { TiPhoneOutline } from 'react-icons/ti';
@@ -97,7 +98,8 @@ const ContactForm = () => {
         required
       />
       <FormButton type="submit" disabled={isLoading}>
-        Add contact
+        <FaFeather style={{ marginRight: '5px' }} />
+        <span>Add contact</span>
       </FormButton>
     </PhoneForm>
   );

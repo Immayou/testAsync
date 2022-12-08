@@ -1,4 +1,5 @@
 import { useDispatch } from 'react-redux';
+import { FaFeather } from 'react-icons/fa';
 import { login } from '../../redux/authOperations';
 import {
   Form,
@@ -45,7 +46,10 @@ export const LogIn = () => {
                 id="password"
                 name="password"
               />
-              <FormButton type="submit">Ok</FormButton>
+              <FormButton type="submit">
+                <FaFeather style={{ marginRight: '5px' }} />
+                <span>Ok</span>
+              </FormButton>
             </FormContent>
           </Form>
         </Layout>

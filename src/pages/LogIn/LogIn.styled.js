@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 import Feathers from '../../images/feathers.png';
+import HeaderLogo from '../../images/feather_logo.png';
 
 export const Layout = styled.div`
   min-height: 100vh;
@@ -139,7 +140,7 @@ export const FormPasswordInput = styled.input`
   margin-bottom: 40px;
   background: #e9eff6;
   line-height: 40px;
-  border-width: 0;
+  border-width: 1px;
   border-radius: 12px;
   font-family: 'Roboto', sans-serif;
   transition: box-shadow 250ms cubic-bezier(0.075, 0.82, 0.165, 1);
@@ -158,11 +159,16 @@ export const FormButton = styled.button`
   font-family: inherit;
   letter-spacing: 0.3ch;
   text-transform: uppercase;
-  background: #c5dde8;
+  /* background: #c5dde8; */
+  background: #6ca1bb;
   border-bottom: 2px solid gray;
   color: #000000;
   font-size: 18px;
   border-radius: 12px;
+  /* background-image: url(${HeaderLogo});
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain; */
   transition: box-shadow 250ms cubic-bezier(0.075, 0.82, 0.165, 1),
     background-color 250ms cubic-bezier(0.075, 0.82, 0.165, 1),
     color 250ms cubic-bezier(0.075, 0.82, 0.165, 1),
@@ -176,25 +182,3 @@ export const FormButton = styled.button`
     letter-spacing: 0.1ch;
   }
 `;
-
-// margin: 0 auto;
-//   width: 40%;
-//   height: 40px;
-//   border-radius: 7px;
-//   font-family: inherit;
-//   text-transform: uppercase;
-//   background: #c5dde8;
-//   border-bottom: 4px solid #eecfba;
-//   border-radius: 7px;
-//   color: #000000;
-//   line-height: 1.17;
-//   letter-spacing: 0.3ch;
-//   font-size: 15px;
-//   transition: box-shadow 250ms cubic-bezier(0.075, 0.82, 0.165, 1),
-//     color 250ms cubic-bezier(0.075, 0.82, 0.165, 1);
-//   :hover,
-//   :focus {
-//     box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
-//       1px 4px 6px rgba(0, 0, 0, 0.16);
-//     color: grey;
-//   }
