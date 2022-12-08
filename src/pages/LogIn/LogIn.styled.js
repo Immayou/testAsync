@@ -125,7 +125,7 @@ export const FormInput = styled.input`
   line-height: 40px;
   border-width: 1px;
   font-size: 18px;
-  border-radius: 20px;
+  border-radius: 12px;
   transition: box-shadow 250ms cubic-bezier(0.075, 0.82, 0.165, 1);
   :hover,
   :focus {
@@ -140,7 +140,7 @@ export const FormPasswordInput = styled.input`
   background: #e9eff6;
   line-height: 40px;
   border-width: 0;
-  border-radius: 20px;
+  border-radius: 12px;
   font-family: 'Roboto', sans-serif;
   transition: box-shadow 250ms cubic-bezier(0.075, 0.82, 0.165, 1);
   :hover,
@@ -162,7 +162,7 @@ export const FormButton = styled.button`
   border-bottom: 2px solid gray;
   color: #000000;
   font-size: 18px;
-  border-radius: 30px;
+  border-radius: 12px;
   transition: box-shadow 250ms cubic-bezier(0.075, 0.82, 0.165, 1),
     background-color 250ms cubic-bezier(0.075, 0.82, 0.165, 1),
     color 250ms cubic-bezier(0.075, 0.82, 0.165, 1),

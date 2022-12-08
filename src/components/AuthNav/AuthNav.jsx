@@ -1,10 +1,12 @@
-import { NavLink } from 'react-router-dom';
+import { HeaderButton } from './AuthNav.styled';
 
 export const AuthNav = () => {
   return (
-    <div>
-      <NavLink to="registration">Register</NavLink>
-      <NavLink to="login">Log in</NavLink>
+    <div style={{ display: 'block', marginLeft: 'auto' }}>
+      <HeaderButton style={{ marginRight: '30px' }} to="registration">
+        Register
+      </HeaderButton>
+      <HeaderButton to="login">Log in</HeaderButton>
     </div>
   );
 };

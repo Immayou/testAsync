@@ -32,12 +32,11 @@ export const ContactButton = styled.button`
   text-transform: uppercase;
   line-height: 1.17;
   letter-spacing: 0.1ch;
-  font-size: 15px;
   background: #c5dde8;
   border-bottom: 2px solid gray;
   color: #000000;
   font-size: 16px;
-  border-radius: 30px;
+  border-radius: 12px;
   transition: box-shadow 250ms cubic-bezier(0.075, 0.82, 0.165, 1),
     background-color 250ms cubic-bezier(0.075, 0.82, 0.165, 1),
     color 250ms cubic-bezier(0.075, 0.82, 0.165, 1),

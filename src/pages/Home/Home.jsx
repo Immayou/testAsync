@@ -1,24 +1,50 @@
-import { Wrapper } from '../Home/Home.styled';
-import MainWrapper from '../../images/wrapper.jpg';
+import { Title } from 'components/ContactForm/ContactForm.styled';
+import Typewriter from 'typewriter-effect';
+import { useAuth } from '../../hooks/useAuth';
+import { Layout } from '../Home/Home.styled';
+import {
+  HomePageTextIfLogged,
+  HomePageText,
+  HomePageTitle,
+} from '../Home/Home.styled';
 
+<Typewriter
+  options={{
+    strings: ['Hello', 'World'],
+    autoStart: true,
+    loop: true,
+  }}
+/>;
 export const Home = () => {
+  const { isLoggedIn } = useAuth();
   return (
     <>
-      <div>
-        {/* <img
-          style={{
-            position: 'absolute',
-            top: '0',
-            left: '0',
-            width: '100px',
-            height: '100px',
-          }}
-          src={MainWrapper}
-          alt="feather"
-        /> */}
-        <h1>Welcome to your Phonebook</h1>
-        <p>Let's get started</p>
-      </div>
+      <Layout>
+        {!isLoggedIn ? (
+          <>
+            <HomePageTitle>Phonebook</HomePageTitle>
+            <HomePageTextIfLogged>
+              <Typewriter
+                options={{
+                  strings: ['Welcome', "Let's get started"],
+                  autoStart: true,
+                  loop: true,
+                }}
+              />
+            </HomePageTextIfLogged>
+          </>
+        ) : (
+          <HomePageText>
+            <Typewriter
+              options={{
+                strings: ['Phonebook'],
+                autoStart: true,
+                loop: true,
+              }}
+            />
+          </HomePageText>
+        )}
+      </Layout>
     </>
   );
 };

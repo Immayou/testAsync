@@ -44,7 +44,7 @@ export const InputNameField = styled.input`
   line-height: 40px;
   border-width: 1px;
   font-size: 18px;
-  border-radius: 15px;
+  border-radius: 12px;
   transition: box-shadow 250ms cubic-bezier(0.075, 0.82, 0.165, 1);
   :hover,
   :focus {
@@ -58,7 +58,7 @@ export const InputNumberField = styled.input`
   background: #e9eff6;
   line-height: 40px;
   border-width: 1px;
-  border-radius: 15px;
+  border-radius: 12px;
   font-size: 18px;
   transition: box-shadow 250ms cubic-bezier(0.075, 0.82, 0.165, 1);
   :hover,
@@ -76,7 +76,7 @@ export const FormButton = styled.button`
   text-transform: uppercase;
   background: #c5dde8;
   border: 1px solid #000000;
-  border-radius: 15px;
+  border-radius: 12px;
   color: #000000;
   line-height: 1.17;
   letter-spacing: 0.3ch;
