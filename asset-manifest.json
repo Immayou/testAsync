@@ -1,16 +1,18 @@
 {
   "files": {
-    "main.css": "/react-homework-template/static/css/main.259b45a4.css",
-    "main.js": "/react-homework-template/static/js/main.f480a338.js",
-    "static/media/wrapper.jpg": "/react-homework-template/static/media/wrapper.36b710f1ad05b06957bb.jpg",
-    "static/media/noMatches.png": "/react-homework-template/static/media/noMatches.e55b2086e22d70d2b853.png",
-    "static/media/error.png": "/react-homework-template/static/media/error.42be22b8849776110312.png",
-    "index.html": "/react-homework-template/index.html",
-    "main.259b45a4.css.map": "/react-homework-template/static/css/main.259b45a4.css.map",
-    "main.f480a338.js.map": "/react-homework-template/static/js/main.f480a338.js.map"
+    "main.css": "/testAsync/static/css/main.c88353ac.css",
+    "main.js": "/testAsync/static/js/main.c613c17f.js",
+    "static/media/feathers.png": "/testAsync/static/media/feathers.e93c4d718242a1ded891.png",
+    "static/media/wrapper.jpg": "/testAsync/static/media/wrapper.36b710f1ad05b06957bb.jpg",
+    "static/media/feather_logo.png": "/testAsync/static/media/feather_logo.eca2fb75bd9e4c3d31f3.png",
+    "static/media/noMatches.png": "/testAsync/static/media/noMatches.e55b2086e22d70d2b853.png",
+    "static/media/error.png": "/testAsync/static/media/error.42be22b8849776110312.png",
+    "index.html": "/testAsync/index.html",
+    "main.c88353ac.css.map": "/testAsync/static/css/main.c88353ac.css.map",
+    "main.c613c17f.js.map": "/testAsync/static/js/main.c613c17f.js.map"
   },
   "entrypoints": [
-    "static/css/main.259b45a4.css",
-    "static/js/main.f480a338.js"
+    "static/css/main.c88353ac.css",
+    "static/js/main.c613c17f.js"
   ]
 }
