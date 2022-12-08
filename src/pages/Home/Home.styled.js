@@ -55,6 +55,9 @@ export const HomePageText = styled.div`
     font-size: 45px;
   }
   @media screen and (min-width: 768px) {
+    font-size: 60px;
+  }
+  @media screen and (min-width: 1200px) {
     font-size: 80px;
   }
 `;

@@ -2,7 +2,6 @@ import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { TiContacts } from 'react-icons/ti';
-import { notifySuccessDeletedInfo } from '../../../src/notificationMessages/notificationMessages';
 import { getIsLoading } from '../../redux/contactSlice';
 import { removeContact } from '../../redux/operations';
 import { Modal } from '../Modal/Modal';
@@ -11,6 +10,7 @@ import {
   NameInfo,
   NumberInfo,
   ContactButton,
+  ButtonBox,
 } from './ContactItem.styled';
 
 export const ContactItem = ({ item }) => {
@@ -18,10 +18,9 @@ export const ContactItem = ({ item }) => {
   const [isOpenModal, setIsOpenModal] = useState(false);
   const isLoading = useSelector(getIsLoading);
 
-  const onDeleteContactHandler = () => {
+  const onRemoveContactHandler = () => {
     try {
       dispatch(removeContact(item.id));
-      notifySuccessDeletedInfo(item.name);
     } catch (error) {
       console.log(error);
     }
@@ -47,22 +46,18 @@ export const ContactItem = ({ item }) => {
             <NumberInfo>{item.number}</NumberInfo>
           </div>
         </div>
-        <div style={{ display: 'flex' }}>
-          <ContactButton
-            type="button"
-            style={{ marginRight: '7px' }}
-            onClick={onEditButtonHandlerClick}
-          >
+        <ButtonBox>
+          <ContactButton type="button" onClick={onEditButtonHandlerClick}>
             Edit
           </ContactButton>
           <ContactButton
             type="button"
             disabled={isLoading}
-            onClick={onDeleteContactHandler}
+            onClick={onRemoveContactHandler}
           >
             {isLoading ? 'Deleting' : 'Delete'}
           </ContactButton>
-        </div>
+        </ButtonBox>
       </ContactSimpleItem>
       {isOpenModal && <Modal onModalClose={onModalClose} dataContact={item} />}
     </>

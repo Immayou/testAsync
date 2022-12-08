@@ -27,7 +27,6 @@ const Contacts = () => {
   useEffect(() => {
     dispatch(fetchContacts());
   }, [dispatch]);
-
   const isNotContactListEmpty = addedContacts.length > 0;
   return (
     <>

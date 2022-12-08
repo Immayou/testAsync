@@ -46,63 +46,67 @@ export const ModalCloseButton = styled.button`
 `;
 
 export const WrapperLeft = styled.div`
-  content: '';
-  position: absolute;
-  width: 50px;
-  height: 20px;
-  background: #ffffff;
-  border-radius: 20px;
-  bottom: 60px;
-  left: -30px;
-  &:after {
+  @media screen and (min-width: 480px) {
     content: '';
     position: absolute;
     width: 50px;
     height: 20px;
-    border-radius: 30px;
-    background: white;
-    top: 20px;
-    left: 10px;
-  }
-  &:before {
-    content: '';
-    position: absolute;
-    width: 50px;
-    height: 20px;
-    border-radius: 30px;
-    background: white;
+    background: #ffffff;
+    border-radius: 20px;
+    bottom: 60px;
+    left: -30px;
+    &:after {
+      content: '';
+      position: absolute;
+      width: 50px;
+      height: 20px;
+      border-radius: 30px;
+      background: white;
+      top: 20px;
+      left: 10px;
+    }
+    &:before {
+      content: '';
+      position: absolute;
+      width: 50px;
+      height: 20px;
+      border-radius: 30px;
+      background: white;
 
-    top: -20px;
+      top: -20px;
+    }
   }
 `;
 
 export const WrapperRight = styled.div`
-  content: '';
-  position: absolute;
-  width: 50px;
-  height: 20px;
-  background: #ffffff;
-  border-radius: 20px;
-  top: 60px;
-  right: -30px;
-  &:after {
-    top: 20px;
-    right: 10px;
+  @media screen and (min-width: 480px) {
     content: '';
     position: absolute;
     width: 50px;
     height: 20px;
-    border-radius: 30px;
-    background: white;
-  }
-  &:before {
-    top: -20px;
-    right: 0;
-    content: '';
-    position: absolute;
-    width: 50px;
-    height: 20px;
-    border-radius: 30px;
-    background: white;
+    background: #ffffff;
+    border-radius: 20px;
+    top: 60px;
+    right: -30px;
+    &:after {
+      top: 20px;
+      right: 10px;
+      content: '';
+      position: absolute;
+      width: 50px;
+      height: 20px;
+      border-radius: 30px;
+      background: white;
+    }
+    &:before {
+      top: -20px;
+      right: 0;
+      content: '';
+      position: absolute;
+      width: 50px;
+      height: 20px;
+      border-radius: 30px;
+      background: white;
+    }
   }
 `;

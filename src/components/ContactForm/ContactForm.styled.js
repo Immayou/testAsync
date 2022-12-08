@@ -12,9 +12,15 @@ export const Title = styled.h1`
   align-items: center;
   justify-content: space-evenly;
   margin-bottom: 20px;
-  font-size: 46px;
+  font-size: 30px;
   font-weight: 500;
   line-height: 1.33;
+  @media screen and (min-width: 480px) {
+    font-size: 40px;
+  }
+  @media screen and (min-width: 768px) {
+    font-size: 46px;
+  }
 `;
 
 export const PhoneForm = styled.form`
@@ -24,17 +30,15 @@ export const PhoneForm = styled.form`
   border-radius: 5px;
 `;
 
-export const NameLabel = styled.label`
+export const FormLabel = styled.label`
   margin-bottom: 10px;
-  font-size: 15px;
+  font-size: 12px;
   line-height: 1.17;
   text-align: start;
-`;
-export const NumberLabel = styled.label`
-  margin-bottom: 10px;
-  font-size: 15px;
-  line-height: 1.17;
-  text-align: start;
+
+  @media screen and (min-width: 480px) {
+    font-size: 15px;
+  }
 `;
 
 export const InputNameField = styled.input`
@@ -75,12 +79,12 @@ export const FormButton = styled.button`
   font-family: inherit;
   text-transform: uppercase;
   background: #c5dde8;
-  border: 1px solid #000000;
+  border-bottom: 2px solid gray;
   border-radius: 12px;
   color: #000000;
   line-height: 1.17;
   letter-spacing: 0.3ch;
-  font-size: 15px;
+  font-size: 12px;
   transition: box-shadow 250ms cubic-bezier(0.075, 0.82, 0.165, 1),
     background-color 250ms cubic-bezier(0.075, 0.82, 0.165, 1),
     color 250ms cubic-bezier(0.075, 0.82, 0.165, 1),
@@ -92,5 +96,9 @@ export const FormButton = styled.button`
     color: grey;
     background-color: #eecfba;
     letter-spacing: 0.2ch;
+  }
+  @media screen and (min-width: 768px) {
+    letter-spacing: 0.2ch;
+    font-size: 15px;
   }
 `;

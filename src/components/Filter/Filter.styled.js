@@ -3,13 +3,12 @@ import styled from '@emotion/styled';
 export const FilterWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  width: 350px;
   margin: 0 auto 20px auto;
 `;
 
 export const FilterLabel = styled.label`
   margin-bottom: 10px;
-  font-size: 20px;
+  font-size: 13px;
   line-height: 1.17;
 `;
 

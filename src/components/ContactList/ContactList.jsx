@@ -3,7 +3,7 @@ import { getContacts, getIsLoading } from '../../redux/contactSlice';
 import { getFilterValue } from '../../redux/filterSlice';
 import { ContactItem } from '../ContactItem/ContactItem';
 import { Spinner } from '../Spinner/Spinner';
-import noMatchesImg from '../../images/noMatches.png';
+import featherImg from '../../images/feather_logo.png';
 import { NoMatchesSectionTitle } from '../ContactList/ContactList.styled';
 
 const ContactList = () => {
@@ -31,7 +31,7 @@ const ContactList = () => {
       {noMatches && (
         <div>
           <NoMatchesSectionTitle>Ooops... No matches!</NoMatchesSectionTitle>
-          <img src={noMatchesImg} alt="Error" width={100} />
+          <img src={featherImg} alt="Error" width={100} />
         </div>
       )}
     </>

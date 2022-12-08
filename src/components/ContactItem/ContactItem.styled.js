@@ -35,7 +35,6 @@ export const ContactButton = styled.button`
   background: #c5dde8;
   border-bottom: 2px solid gray;
   color: #000000;
-  font-size: 16px;
   border-radius: 12px;
   transition: box-shadow 250ms cubic-bezier(0.075, 0.82, 0.165, 1),
     background-color 250ms cubic-bezier(0.075, 0.82, 0.165, 1),
@@ -48,5 +47,26 @@ export const ContactButton = styled.button`
     color: grey;
     background-color: #eecfba;
     letter-spacing: 0.1ch;
+  }
+  @media screen and (min-width: 480px) {
+    &:not(:last-child) {
+      margin-right: 7px;
+    }
+  }
+`;
+
+export const ButtonBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 10px;
+  @media screen and (min-width: 480px) {
+    flex-direction: row;
+    font-size: 16px;
+  }
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+    font-size: 20px;
   }
 `;

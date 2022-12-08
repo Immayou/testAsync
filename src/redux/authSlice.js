@@ -54,7 +54,7 @@ export const authSlice = createSlice({
       .addCase(logOut.rejected, rejectedReducer)
       .addCase(refreshUser.pending, pendingReducer)
       .addCase(refreshUser.fulfilled, refreshSuccessReducer)
-      .addCase(refreshUser.rejected, (state, action) => state),
+      .addCase(refreshUser.rejected, rejectedReducer),
 });
 
 export const selectIsLoggedIn = state => state.auth.isLoggedIn;

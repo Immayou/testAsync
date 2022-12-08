@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import { FaFeather } from 'react-icons/fa';
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { createPortal } from 'react-dom';
@@ -85,7 +86,7 @@ export const Modal = ({ onModalClose, dataContact }) => {
       ({ name, id, number }) =>
         name.toLowerCase() === contactToEdit.name.toLowerCase() &&
         contactToEdit.id === id &&
-        number.trim() === contactToEdit.number.trim()
+        number === contactToEdit.number
     );
 
     if (editedContactAlreadyExists) {
@@ -132,7 +133,10 @@ export const Modal = ({ onModalClose, dataContact }) => {
             title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
             required
           />
-          <FormButton type="submit">Ok</FormButton>
+          <FormButton type="submit">
+            <FaFeather style={{ marginRight: '5px' }} />
+            <span>Ok</span>
+          </FormButton>
         </FormContent>
       </Form>
     </Overlay>,

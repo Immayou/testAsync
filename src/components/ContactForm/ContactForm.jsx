@@ -9,9 +9,8 @@ import { notifyErrorIfNewContactAlreadyExists } from '../../notificationMessages
 import {
   Title,
   PhoneForm,
-  NameLabel,
+  FormLabel,
   InputNameField,
-  NumberLabel,
   InputNumberField,
   FormButton,
   StyledContainer,
@@ -48,11 +47,11 @@ const ContactForm = () => {
       number,
     };
 
-    const checkIfNewContactAlreadyExists = addedContacts.find(
+    const newContactAlreadyExists = addedContacts.find(
       ({ name }) => name.toLowerCase() === contactToAdd.name.toLowerCase()
     );
 
-    if (checkIfNewContactAlreadyExists) {
+    if (newContactAlreadyExists) {
       notifyErrorIfNewContactAlreadyExists(contactToAdd.name);
     } else {
       dispatch(addNewContact(contactToAdd));
@@ -67,11 +66,11 @@ const ContactForm = () => {
 
   return (
     <PhoneForm onSubmit={handleSubmit}>
-      <StyledContainer />
+      <StyledContainer autoClose={2000} />
       <Title>
-        <TiPhoneOutline size={50} /> Phonebook
+        <TiPhoneOutline size={40} /> Phonebook
       </Title>
-      <NameLabel htmlFor={nameInputId}>Name</NameLabel>
+      <FormLabel htmlFor={nameInputId}>Name</FormLabel>
       <InputNameField
         id={nameInputId}
         type="text"
@@ -82,7 +81,7 @@ const ContactForm = () => {
         onChange={handleInput}
         required
       />
-      <NumberLabel htmlFor={numberInputId}>Number</NumberLabel>
+      <FormLabel htmlFor={numberInputId}>Number</FormLabel>
       <InputNumberField
         id={numberInputId}
         type="tel"
